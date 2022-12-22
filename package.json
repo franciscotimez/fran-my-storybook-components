@@ -9,6 +9,10 @@
     "url": "https://github.com/franciscotimez/fran-my-storybook-components",
     "type": "git"
   },
+  "peerDependencies": {
+    "react":">=16",
+    "typescript": ">=4.0.0"
+  },
   "release": {
     "branches": [ "main"]
   },
@@ -31,7 +35,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "todo"
+    "build": "yarn clean && tsc && yarn copy-files",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "eslintConfig": {
     "extends": [
